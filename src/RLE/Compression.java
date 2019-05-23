@@ -1,8 +1,11 @@
 package RLE;
 
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
+import javax.swing.*;
 import java.io.*;
+import java.io.File;
 
 public abstract class Compression {
 	protected String _depart;
@@ -52,20 +55,32 @@ public abstract class Compression {
 		decompresser(arr,v);
 		CSP.estLeMeme(dep,arr);
 	}
-	
 	public void testerTout(boolean v){
 
 
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*"));
 		File f = fc.showOpenDialog(null);
+
 		if(f != null)
 		{
 			String fich = f.getAbsolutePath();
 			String ff = "Files/Decompressed/"+f.getName();
-			//System.out.println(ff);
 			tester(fich,ff,v);
 		}
+
+		else {
+			DirectoryChooser chooser = new DirectoryChooser();
+			File defaultDirectory = chooser.showDialog(null);
+			chooser.setInitialDirectory(defaultDirectory);
+
+			if (defaultDirectory != null) {
+				String fich = defaultDirectory.getAbsolutePath();
+				String ff = "Files/Decompressed/" + f.getName();
+				tester(fich, ff, v);
+			}
+		}
+
 	}
 
 	public void testerToutTexte(boolean v){

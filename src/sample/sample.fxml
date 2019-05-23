@@ -7,5 +7,7 @@
    <children>
       <Button fx:id="RLEButton" layoutX="120.0" layoutY="69.0" mnemonicParsing="false" onAction="#RLEButton" prefHeight="25.0" prefWidth="47.0" text="RLE" textAlignment="CENTER" />
       <Button fx:id="Huffman" layoutX="215.0" layoutY="69.0" mnemonicParsing="false" onAction="#HuffmanButton" text="Huffman" />
+      <Button fx:id="AdaptiveHuffmanEncode" layoutX="120.0" layoutY="107.0" mnemonicParsing="false" onAction="#AdaptiveHuffmanEncodeButton" text="AdaptiveHuffmanEncode" />
+      <Button fx:id="AdaptiveHuffmanDecode" layoutX="141.0" layoutY="141.0" mnemonicParsing="false" onAction="#AdaptiveHuffmanDecodeButton" text="AdapTiveDecode" />
    </children>
 </AnchorPane>
