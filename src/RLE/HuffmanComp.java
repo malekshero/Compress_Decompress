@@ -48,7 +48,7 @@ public class HuffmanComp extends Compression{
 	
 	// pour obtenir la table des fr�quences
 	public void lireFichier(boolean verbeux){
-		if(verbeux)System.out.print(">> Lecture du fichier...   ");
+	//	if(verbeux)System.out.print(">> Reading the file...   ");
 		try{
 			// on cr�� 2 flux d'entr�e, pour g�rer le cas d'un fichier de taille impaire :
 			BufferedInputStream fluxLectureBuff= new BufferedInputStream(new FileInputStream(_depart));
@@ -78,12 +78,12 @@ public class HuffmanComp extends Compression{
 				dernierCarac=(byte)fluxLectureBuff.read();
 			}
 			
-			if(verbeux)System.out.println("OK");
+			//if(verbeux)System.out.println("OK");
 			fluxLectureData.close();
 			fluxLectureBuff.close();
 		}
 		catch(IOException e){
-			System.err.println("Erreur de lecture "+e);
+			System.err.println("Playback error "+e);
 			}
 	}
 	
@@ -91,7 +91,7 @@ public class HuffmanComp extends Compression{
 	
 	// pour monter l'abre binaire
 	public void monterArbre(boolean v){
-		if(v)System.out.print(">> Montage de l'arbre...   ");
+		//if(v)System.out.print(">> Montage de l'arbre...   ");
 		// cr�ation de l'arbre comme une liste d'un noeud pas valeur
 		List<Noeud<Short>> arbre=new ArrayList<Noeud<Short>>();
 		Set<Short> shortsPresents=nombreOccurences.keySet();
@@ -135,7 +135,7 @@ public class HuffmanComp extends Compression{
 			}
 		}
 		racineArbre=arbre.get(0);
-		if(v)System.out.println("OK");
+		//if(v)System.out.println("OK");
 	}
 	
 	// pour obtenir les tables
@@ -146,7 +146,7 @@ public class HuffmanComp extends Compression{
 		for(short k : s){
 			tableDecodage.put(tableCodage.get(k),k);
 		}
-		if(v)System.out.println("OK");
+		//if(v)System.out.println("OK");
 	}
 	
 	// fonction r�cusrcive pour obtenir le code binaire associ� � l'arbre :
@@ -171,10 +171,10 @@ public class HuffmanComp extends Compression{
 			tailleFin+=tableCodage.get(k).length()*nombreOccurences.get(k);
 		}
 		double d=tailleFin*1.0/tailleIni;
-		System.out.println("-------- PREVISIONS---------");
-		System.out.println("Non compress�         : "+tailleIni+" bit "+tailleIni/8./1000+" Ko");
-		System.out.println("Compress�             : "+tailleFin+" bit "+tailleFin/8./1000+" Ko");
-		System.out.printf("Taux de compression   : %.2f%s\n",(1-d)*100,"%");
+		System.out.println("-------- FORECASTS---------");
+		System.out.println("Non compress			: "+tailleIni+" bit "+tailleIni/8./1000+" Ko");
+		System.out.println("compress				: "+tailleFin+" bit "+tailleFin/8./1000+" Ko");
+		System.out.printf ("CompressionRatio		: %.2f%s\n",(1-d)*100,"%");
 		return d;
 	}
 
@@ -183,17 +183,17 @@ public class HuffmanComp extends Compression{
 		temps=-System.currentTimeMillis();
 		if(v){
 			System.out.println("-------- COMPRESSION--------");
-			System.out.println("De                    : "+_depart);
-			System.out.println("Vers                  : "+fin);
-			System.out.println("Methode               : Huffman");
+			System.out.println("From                    : "+_depart);
+			System.out.println("To                  : "+fin);
+
 		}
 		lireFichier(v);
 		monterArbre(v);
-		if(v)System.out.print(">> Lecture de l'arbre...   ");
+		//if(v)System.out.print(">> Reading the tree...   ");
 		lireArbre(racineArbre,"");
 		chargerListe(v);
 		try{
-			if(v)System.out.print(">> Encodage...             ");
+		//	if(v)System.out.print(">> Encode...             ");
 			DataInputStream fluxLecture=new DataInputStream(new BufferedInputStream(new FileInputStream(_depart)));
 			StringBuffer chaneBinaire=new StringBuffer();
 			boolean aTermin=false;
@@ -209,10 +209,10 @@ public class HuffmanComp extends Compression{
 					// crit�re d'arret plus rapide
 				}
 			}
-			if(v)System.out.println("OK");
+			//if(v)System.out.println("OK");
 			fluxLecture.close();
 			
-			if(v)System.out.print(">> Cr�ation de l'objet...  ");
+			//if(v)System.out.print(">> Creation de l'objet...  ");
 			short[] liste=new short[chaneBinaire.length()/(TAILLE_ECR)+1];
 			int nombreBitsEcrits=0;
 			int nombreEcritures=0;
@@ -239,16 +239,16 @@ public class HuffmanComp extends Compression{
 				code[i2]=tableDecodage.get(s);
 			}
 			HuffmanCompEcrit hme=new HuffmanCompEcrit(valeur16b,nbBitValeur16b,code,liste,tailleFichier,tailleDernierEntier,dernierCarac);
-			if(v)System.out.println("OK ");
+			//if(v)System.out.println("OK ");
 			
 			// il suffit de l'�crire
-			if(v)System.out.print(">> Ecriture...             ");
+		//	if(v)System.out.print(">> writing...             ");
 			ObjectOutputStream fluxEcriture=new ObjectOutputStream(new FileOutputStream(fin));
 			fluxEcriture.writeObject(hme);
 			fluxEcriture.close();
-			if(v)System.out.println("OK");
+			//if(v)System.out.println("OK");
 			temps+=System.currentTimeMillis();
-			System.out.println("Fin de la compression en "+temps+" ms");
+			System.out.println("Compress ends "+temps+" ms");
 			CSP.tauxComp(_depart, fin);
 		}
 		catch(IOException e){
@@ -260,20 +260,20 @@ public class HuffmanComp extends Compression{
 		temps=-System.currentTimeMillis();
 		if(v){
 			System.out.println("-------- DECOMPRESSION------");
-			System.out.println("De                    : "+_depart);
-			System.out.println("Vers                  : "+fin);
-			System.out.println("Methode               : Huffman");
+			System.out.println("from                     : "+_depart);
+			System.out.println("to                  : "+fin);
+			//System.out.println("Methode               : Huffman");
 		}
 		try{
 			// on lit l'objet :
-			if(v)System.out.print(">> Lecture...              ");
+			//if(v)System.out.print(">> reading...              ");
 			ObjectInputStream fluxLecture=new ObjectInputStream(new BufferedInputStream(new FileInputStream(_depart)));
 			HuffmanCompEcrit hme=(HuffmanCompEcrit) fluxLecture.readObject();
 			fluxLecture.close();
 			if(v)System.out.println("OK");
 			
 			// on change la forme de ses donn�es :
-			if(v)System.out.print(">> Mise en cha�ne...       ");
+			//if(v)System.out.print(">> Mise en chacne...       ");
 			int tailleTable=hme.decI.length;
 			tableDecodage=new HashMap<String,Short>();// 2x plus rapide que TreeMap
 			try{
@@ -298,8 +298,8 @@ public class HuffmanComp extends Compression{
 			}
 			// on enl�ve les derniers bits non porteur d'information :
 			ChaneCode.delete(ChaneCode.length()-TAILLE_ECR,ChaneCode.length()-TAILLE_ECR+hme.td);
-			if(v)System.out.println("OK");
-			if(v)System.out.print(">> Ecriture...             ");
+		//	if(v)System.out.println("OK");
+			//if(v)System.out.print(">> Ecriture...             ");
 			
 			// decodage :
 			DataOutputStream fluxEcriture=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(fin)));
@@ -331,9 +331,9 @@ public class HuffmanComp extends Compression{
 			if(hme.p!=-1){
 				fluxEcriture.write(hme.p);
 			}
-			if(v)System.out.println("OK");
+			//if(v)System.out.println("OK");
 			temps+=System.currentTimeMillis();
-			System.out.println("Fin de la decompression en "+temps+" ms");
+			System.out.println(" decompression ends "+temps+" ms");
 			fluxEcriture.close();
 		}
 		catch(IOException e){
@@ -377,9 +377,9 @@ public class HuffmanComp extends Compression{
 	//=========== TEST ==============
 	
 	public static void main(String[] args){
-		HuffmanComp hc=new HuffmanComp("");
-		hc.tester("12.jpg", "312.jpg", true);
-		//hc.testerTout(true);
+//		HuffmanComp hc=new HuffmanComp("");
+//		hc.tester("12.jpg", "312.jpg", true);
+//		//hc.testerTout(true);
 	}
 }
 

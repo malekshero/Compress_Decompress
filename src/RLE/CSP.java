@@ -14,7 +14,7 @@ public class CSP {
 		int manquant=0;
 		int mauvais=0;
 		try{
-			System.out.print("Test entre "+s1+" et "+s2+ " : ");
+			//System.out.print("Test entre "+s1+" et "+s2+ " : ");
 			FileInputStream f1= new FileInputStream(s1);
 			FileInputStream f2= new FileInputStream(s2);
 			BufferedInputStream g1=new BufferedInputStream(f1);
@@ -33,13 +33,13 @@ public class CSP {
 			f1.close();
 			f2.close();
 			if(mauvais==0 && manquant==0){
-				System.out.println("IDENTIQUES");
+			//	System.out.println("IDENTIQUES");
 			}
-			else{
-				System.out.println("DIFFERENTS");
-				System.out.println("Mauvais : "+mauvais);
-				System.out.println("Manquant : "+manquant);
-			}
+			//else{
+			//	System.out.println("DIFFERENTS");
+			//	System.out.println("Mauvais : "+mauvais);
+			//	System.out.println("Manquant : "+manquant);
+			//}
 		}
 		catch(IOException e){
 			System.out.println("FICHIER(S) INTROUVABLE(S)");
@@ -50,7 +50,7 @@ public class CSP {
 	
 	public static double tauxComp(String depart, String arrive){
 		double taux=100-(double)tailleDe(arrive)/tailleDe(depart)*100;
-		System.out.printf("taux de compression : %.1f%s\n",taux,"%");
+		System.out.printf("CompressionRatio : %.1f%s\n",taux,"%");
 		return taux;
 	}
 	

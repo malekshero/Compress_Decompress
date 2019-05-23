@@ -1,9 +1,8 @@
 package RLE;
-
 import java.util.*;
 import java.io.*;
 
-public class RLE extends Compression{
+public class RLE extends Compression {
 	private List<Byte> _neutre=null;// caract�re(s) de demarquation
 	private static int _octet=1;// taille de la cha�ne qui se rep�te, en octets
 	
@@ -18,7 +17,7 @@ public class RLE extends Compression{
 	}
 	
 	public void chercherNeutre(boolean v) throws IOException{
-		if(v)System.out.print(">> Trouver le neutre...    ");
+		//if(v)System.out.print(">> Find the neutral...    ");
 		BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
 		
 		// on stocke les caract�res d�j� vus dans une table
@@ -43,10 +42,10 @@ public class RLE extends Compression{
 				l=incrementer(l);
 			}
 			_neutre=l;
-			if(v)System.out.print("OK ( [");
-			for(byte by:l)
-				System.out.print(" "+by);
-			System.out.println(" ] )");
+			//if(v)System.out.print("OK ( [");
+			//for(byte by:l)
+			//	System.out.print(" "+by);
+			//System.out.println(" ] )");
 		}
 		catch(NullPointerException e){
 			// si on n'a pas trouver un neutre de taille octet, on essaye avec octet+1
@@ -60,14 +59,14 @@ public class RLE extends Compression{
 		long temps=-System.currentTimeMillis();
 		if(v){
 			System.out.println("-------- COMPRESSION--------");
-			System.out.println("De                    : "+_depart);
-			System.out.println("Vers                  : "+fin);
-			System.out.println("Methode               : Repetition");
+			System.out.println("from                    : "+_depart);
+			System.out.println("To                  : "+fin);
+		//	System.out.println("Method                : Repetition");
 		}
 		try{
 			chercherNeutre(v);
 			
-			if(v)System.out.print(">> Transcription...        ");
+			//if(v)System.out.print(">> Transcription...        ");
 			BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
 			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream(fin));
 			
@@ -126,7 +125,7 @@ public class RLE extends Compression{
 			fluxEcriture.close();
 			System.out.println("OK");
 			temps+=System.currentTimeMillis();
-			System.out.println("Fin de la compression en "+temps+" ms");
+			System.out.println("Compress ends "+temps+" ms");
 			CSP.tauxComp(_depart, fin);
 		}
 		catch(Exception e){
@@ -166,38 +165,38 @@ public class RLE extends Compression{
 				return l;
 			}
 		}
-		throw new NullPointerException("Aucun ("+_octet+")");
+		throw new NullPointerException("No ("+_octet+")");
 	}
 	
 	public void decompresser(String fin, boolean v){
 		long temps=-System.currentTimeMillis();
 		if(v){
 			System.out.println("-------- DECOMPRESSION------");
-			System.out.println("De                    : "+_depart);
-			System.out.println("Vers                  : "+fin);
-			System.out.println("Methode               : Repetition");
+			System.out.println("from                    : "+_depart);
+			System.out.println("To                      : "+fin);
+			//System.out.println("Method	              : Repetition");
 		}
 		try{
-			if(v)System.out.print(">> Nombre d'octet...       ");
+			//if(v)System.out.print(">> bytes number...       ");
 			BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
 			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream(fin));
 			
 			// on lit les informations de l'ent�te
 			_octet=fluxLecture.read();
-			if(v)System.out.println("OK ("+_octet+")");
-			if(v)System.out.print(">> Neutre...               ");
+			//if(v)System.out.println("OK ("+_octet+")");
+			//if(v)System.out.print(">> Neutral...               ");
 			byte[] buff=new byte[_octet];
 			fluxLecture.read(buff);
 			byte[] neutre=new byte[_octet];
-			if(v)System.out.print("OK ( [");
+			//if(v)System.out.print("OK ( [");
 			for(int i=0;i<_octet;i++){
 				neutre[i]=buff[i];
-				System.out.print(" "+neutre[i]);
+			//	System.out.print(" "+neutre[i]);
 			}
-			System.out.println(" ] )");
+			//System.out.println(" ] )");
 			
 			// on traduit
-			if(v)System.out.print(">> Transcription...        ");
+			//if(v)System.out.print(">> Transcription...        ");
 			int nbLu=0;
 			while((nbLu=fluxLecture.read(buff))==_octet){
 				int i=0;
@@ -227,9 +226,9 @@ public class RLE extends Compression{
 			
 			fluxLecture.close();
 			fluxEcriture.close();
-			if(v) System.out.println("OK");
+			//if(v) System.out.println("OK");
 			temps+=System.currentTimeMillis();
-			System.out.println("Fin de la decompression en "+temps+" ms");
+			System.out.println("End of decompression "+temps+" ms");
 			
 		}
 		catch(IOException e){
@@ -239,9 +238,7 @@ public class RLE extends Compression{
 	
 	
 	public static void main(String[] f){
-		RLE rc=new RLE("");
-		//rc.tester("test/s.so", "test/2s.so", true);
-		rc.testerTout(true);
+
 
 	}
 	

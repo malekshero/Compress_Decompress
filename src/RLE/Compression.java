@@ -1,6 +1,7 @@
 package RLE;
 
-import java.util.*;
+import javafx.stage.FileChooser;
+
 import java.io.*;
 
 public abstract class Compression {
@@ -44,6 +45,7 @@ public abstract class Compression {
 	public void tester(String dep,String arr, boolean v){
 		raz();
 		_depart=dep;
+
 		compresser(dep+"c", v);
 		raz();
 		_depart=dep+"c";
@@ -52,10 +54,18 @@ public abstract class Compression {
 	}
 	
 	public void testerTout(boolean v){
-		String rep="";
-		String fich[]={"12.jpg"};
-		for(String s :fich)
-			tester(rep+s,rep+"2"+s,v);
+
+
+		FileChooser fc = new FileChooser();
+		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*"));
+		File f = fc.showOpenDialog(null);
+		if(f != null)
+		{
+			String fich = f.getAbsolutePath();
+			String ff = "Files/Decompressed/"+f.getName();
+			//System.out.println(ff);
+			tester(fich,ff,v);
+		}
 	}
 
 	public void testerToutTexte(boolean v){
