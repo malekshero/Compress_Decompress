@@ -1,18 +1,19 @@
 package adaptiveHuffman.decoder;
-
 import adaptiveHuffman.BitInputStream;
 import adaptiveHuffman.tree.Node;
 import adaptiveHuffman.tree.Tree;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Decoder {
 	
 	private BitInputStream in = null;
 	private FileOutputStream out = null;
 	
-    public void main() {
+    public void decodeFile() {
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*") );
 		fc.setInitialDirectory(new File("C:\\Users\\Malek Shero\\Desktop\\multimidia_project\\Files\\Compressed\\"));
@@ -33,6 +34,34 @@ public class Decoder {
 			System.out.println("Compression ratio: " + ((float) out.length() / (float) in.length()));
 		}
     }
+	public void decodeFiles() {
+		DirectoryChooser chooser = new DirectoryChooser();
+		File defaultDirectory = chooser.showDialog(null);
+		chooser.setInitialDirectory(defaultDirectory);
+		List<String> results = new ArrayList<String>();
+		File[] files = new File(defaultDirectory.getAbsolutePath()).listFiles();
+
+		if (defaultDirectory != null) {
+			for (File file : files) {
+				if (file.isFile()) {
+					results.add(file.getAbsolutePath());
+
+					String input = file.getAbsolutePath();
+					String output = "Files/Decompressed/" + file.getName();
+					output = output.substring(0, output.length() - 1);
+					Decoder dec = new Decoder(input, output);
+					Tree tree = new Tree();
+					File in = new File(input);
+					dec.decode(tree);
+					File out = new File(output);
+					System.out.println("Finished decompression of: " + in.getName());
+					System.out.println("Original size: " + in.length() + " bytes");
+					System.out.println("Uncompressed size: " + out.length() + " bytes");
+					System.out.println("Compression ratio: " + ((float) out.length() / (float) in.length()));
+				}
+			}
+		}
+	}
 
 	public Decoder() {
 	}
@@ -49,9 +78,7 @@ public class Decoder {
     
 	public void decode(Tree tree) {
 		try {
-			
 			int c = 0;
-			
 			if(tree.isEmpty()) { // Just write out first byte.
 				int bitBuffer = 0;
 				for(int i = 0; i<8;i++) {
@@ -66,7 +93,6 @@ public class Decoder {
 			while((c = in.read()) != -1) {
 				if(c == 1) node = node.right;
 				if(c == 0) node = node.left;
-				
 				int value = 0;
 				if(node.isNYT()) {
 					value = readByte(in); 
@@ -115,5 +141,4 @@ public class Decoder {
 		}
 		return bitBuffer;
 	}
-
 }

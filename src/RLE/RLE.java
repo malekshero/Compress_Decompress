@@ -48,16 +48,17 @@ public class RLE extends Compression {
 	
 	public void compresser(String fin, boolean v){
 		long temps=-System.currentTimeMillis();
+		File f1 = new File(fin);
 		if(v){
 			System.out.println("-------- COMPRESSION--------");
 			System.out.println("from                    : "+_depart);
-			System.out.println("To                  : "+fin);
+			System.out.println("To                  : "+"Files/Compressed/"+f1.getName());
 		}
 		try{
 			chercherNeutre(v);
 			
 			BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
-			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream(fin));
+			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream("Files/Compressed/"+f1.getName()));
 			fluxEcriture.write(_octet);
 			for(byte by:_neutre){
 				fluxEcriture.write(by);
@@ -112,7 +113,7 @@ public class RLE extends Compression {
 			System.out.println("OK");
 			temps+=System.currentTimeMillis();
 			System.out.println("Compress ends "+temps+" ms");
-			CSP.CompressRatio(_depart, fin);
+			CSP.CompressRatio(_depart, "Files/Compressed/"+f1.getName());
 		}
 		catch(Exception e){
 			System.out.println(e);
@@ -153,14 +154,16 @@ public class RLE extends Compression {
 	
 	public void decompresser(String fin, boolean v){
 		long temps=-System.currentTimeMillis();
+		File f1 = new File(_depart);
 		if(v){
 			System.out.println("-------- DECOMPRESSION------");
-			System.out.println("from                    : "+_depart);
+			System.out.println("from                    : "+"Files/Compressed/"+f1.getName());
 			System.out.println("To                      : "+fin);
 		}
 		try{
-			BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
-			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream(fin));
+			File f2 = new File(fin);
+			BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream("Files/Compressed/"+f2.getName()+"c"));
+			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream("Files/Decompressed/"+f2.getName()));
 			
 			_octet=fluxLecture.read();
 			byte[] buff=new byte[_octet];

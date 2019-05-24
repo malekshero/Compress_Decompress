@@ -22,6 +22,9 @@ public class Controller implements Initializable {
     public Button ZipMultiFiles;
     public Button ZipDirectory;
     public Button BlockSort;
+    public Button AdaptiveEncodeFiles;
+    public Button AdaptiveDecodeFiles;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -41,7 +44,7 @@ public class Controller implements Initializable {
 
     public void AdaptiveHuffmanDecodeButton(ActionEvent actionEvent) {
         Decoder De = new Decoder();
-        De.main();
+        De.decodeFile();
 
 
     }
@@ -52,7 +55,7 @@ public class Controller implements Initializable {
 
     public void AdaptiveHuffmanEncodeButton(ActionEvent actionEvent) {
         Encoder encode= new Encoder();
-        encode.main();
+        encode.encodeFile();
     }
 
     public void ZipFileCompressButton(ActionEvent actionEvent) {
@@ -66,5 +69,15 @@ public class Controller implements Initializable {
     public void ZipDirectoryButton(ActionEvent actionEvent) {
         ZipDir zd = new ZipDir();
         zd.main();
+    }
+
+    public void AdaptiveEncodeFilesButton(ActionEvent actionEvent) {
+        Encoder encode= new Encoder();
+        encode.encodeFiles();
+    }
+
+    public void AdaptiveDecodeFilesButton(ActionEvent actionEvent) {
+        Decoder De = new Decoder();
+        De.decodeFiles();
     }
 }

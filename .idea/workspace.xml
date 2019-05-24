@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Edits">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="some Edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/RLE/CSP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/RLE/CSP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/RLE/Compression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/RLE/Compression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/RLE/HuffmanComp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/RLE/HuffmanComp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/RLE/RLE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/RLE/RLE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RLE/Compression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RLE/Compression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RLE/HuffmanComp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RLE/HuffmanComp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RLE/RLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RLE/RLE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,15 +78,15 @@
           <entry key="dummy" value="36" />
           <entry key="fxml" value="7" />
           <entry key="gitignore" value="47" />
-          <entry key="java" value="2549" />
-          <entry key="txt" value="131" />
+          <entry key="java" value="2713" />
+          <entry key="txt" value="140" />
           <entry key="xml" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2549" />
-          <entry key="PLAIN_TEXT" value="214" />
+          <entry key="JAVA" value="2713" />
+          <entry key="PLAIN_TEXT" value="223" />
           <entry key="XML" value="61" />
         </counts>
       </usages-collector>
@@ -98,18 +95,19 @@
           <entry key="csv" value="4" />
           <entry key="fxml" value="3" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="75" />
-          <entry key="jpg" value="9" />
+          <entry key="java" value="80" />
+          <entry key="jpg" value="17" />
           <entry key="md" value="1" />
+          <entry key="txt" value="1" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="4" />
-          <entry key="Image" value="9" />
-          <entry key="JAVA" value="75" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Image" value="17" />
+          <entry key="JAVA" value="80" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
@@ -123,66 +121,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="280">
+              <caret line="16" column="110" selection-start-line="16" selection-start-column="110" selection-end-line="16" selection-end-column="110" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/RLE/HuffmanComp.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="308" column="1" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
+            <state relative-caret-position="195">
+              <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#HuffmanComp#0;class#HuffmanComp#0" />
-                <element signature="e#1936#1949#0" expanded="true" />
-                <element signature="e#2068#2075#0" expanded="true" />
-                <element signature="e#2226#2233#0" expanded="true" />
-                <element signature="method#string2Short#0;class#HuffmanComp#0" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Files/Decompressed/read.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RLE/RLE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="1220">
+              <caret line="115" column="71" selection-start-line="115" selection-start-column="71" selection-end-line="115" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RLE/CSP.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#raz#0;class#RLE#0" />
+                <element signature="method#chercherNeutre#0;class#RLE#0" />
+                <element signature="method#ecrire#0;class#RLE#0" />
+                <element signature="method#incrementer#0;class#RLE#0" />
               </folding>
             </state>
           </provider>
@@ -191,11 +159,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="198">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1552#1560#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+              <folding>
+                <element signature="e#1414#1422#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="59">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -203,24 +193,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RLE/Compression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+            <state relative-caret-position="505">
+              <caret line="54" column="13" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="54" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#int2bin#0;class#Compression#0" />
-                <element signature="e#1209#1217#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ZipCompress/ZipFiles.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -274,19 +251,19 @@
         <option value="$PROJECT_DIR$/src/AdabtiveHuffman/build.xml" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java" />
         <option value="$PROJECT_DIR$/src/ZipCompress/ZipFiles.java" />
         <option value="$PROJECT_DIR$/src/ZipCompress/ZipFile.java" />
         <option value="$PROJECT_DIR$/src/ZipCompress/ZipDir.java" />
         <option value="$PROJECT_DIR$/src/RLE/BurrowsWheelerComp.java" />
-        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java" />
         <option value="$PROJECT_DIR$/src/RLE/CSP.java" />
-        <option value="$PROJECT_DIR$/src/RLE/RLE.java" />
         <option value="$PROJECT_DIR$/src/RLE/blockSortingAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/RLE/Compression.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/RLE/HuffmanComp.java" />
+        <option value="$PROJECT_DIR$/src/RLE/RLE.java" />
+        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java" />
       </list>
     </option>
   </component>
@@ -325,6 +302,12 @@
               <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="multimidia_project" type="462c0819:PsiDirectoryNode" />
               <item name="Files" type="462c0819:PsiDirectoryNode" />
+              <item name="Compressed" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multimidia_project" type="462c0819:PsiDirectoryNode" />
+              <item name="Files" type="462c0819:PsiDirectoryNode" />
               <item name="Decompressed" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -337,12 +320,6 @@
               <item name="multimidia_project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="RLE" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="multimidia_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ZipCompress" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
@@ -363,7 +340,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558669902265" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558718818472" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/antlar to java lib/junit-4.10.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -593,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558669836899</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="some Edit">
+      <created>1558713093478</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1558713093478</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -612,7 +596,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7348609" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.67757773" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -650,7 +634,8 @@
     <MESSAGE value="add adaptive huffman and some edits" />
     <MESSAGE value="Add Compress Zip File,MultiFile,Directory" />
     <MESSAGE value="Edits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edits" />
+    <MESSAGE value="some Edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="some Edit" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -692,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ZipCompress/ZipFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -706,22 +684,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ZipCompress/ZipDir.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RLE/DicoComp16.java" />
     <entry file="file://$PROJECT_DIR$/src/RLE/MTF.java" />
-    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RLE/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -753,56 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RLE/Compression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#int2bin#0;class#Compression#0" />
-            <element signature="e#1209#1217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RLE/RLE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Files/Compressed/12.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -815,20 +729,114 @@
       </provider>
       <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ZipCompress/ZipDir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/Pass.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/9.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/112.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Files/Decompressed/2.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RLE/HuffmanComp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="308" column="1" selection-start-line="308" selection-start-column="1" selection-end-line="308" selection-end-column="1" />
+        <state relative-caret-position="182">
+          <caret line="192" column="120" selection-start-line="192" selection-start-column="88" selection-end-line="192" selection-end-column="120" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#HuffmanComp#0;class#HuffmanComp#0" />
+            <element signature="method#lireFichier#0;class#HuffmanComp#0" />
+            <element signature="method#monterArbre#0;class#HuffmanComp#0" />
             <element signature="e#1936#1949#0" expanded="true" />
             <element signature="e#2068#2075#0" expanded="true" />
             <element signature="e#2226#2233#0" expanded="true" />
+            <element signature="method#chargerListe#0;class#HuffmanComp#0" />
+            <element signature="method#lireArbre#0;class#HuffmanComp#0" />
             <element signature="method#string2Short#0;class#HuffmanComp#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RLE/Compression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="54" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#int2bin#0;class#Compression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" column="110" selection-start-line="16" selection-start-column="110" selection-end-line="16" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1552#1560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RLE/RLE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="115" column="71" selection-start-line="115" selection-start-column="71" selection-end-line="115" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#raz#0;class#RLE#0" />
+            <element signature="method#chercherNeutre#0;class#RLE#0" />
+            <element signature="method#ecrire#0;class#RLE#0" />
+            <element signature="method#incrementer#0;class#RLE#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+          <folding>
+            <element signature="e#1414#1422#0" expanded="true" />
           </folding>
         </state>
       </provider>
