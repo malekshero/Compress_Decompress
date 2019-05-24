@@ -19,7 +19,7 @@ public class HuffmanComp extends Compression{
 		tailleFichier=0;
 		_depart=new String();
 	}
-	
+
 	public void raz(){
 		nombreOccurences=new HashMap<Short,Integer>();
 		tableCodage= new HashMap<Short,String>();
@@ -28,7 +28,7 @@ public class HuffmanComp extends Compression{
 		tailleFichier=0;
 		_depart=new String();
 	}
-	
+
 	public HuffmanComp(String adresseFichierDepart){
 		this();
 		_depart=adresseFichierDepart;
@@ -52,9 +52,9 @@ public class HuffmanComp extends Compression{
 				}
 				catch(EOFException e){//crit�re d'arret :
 					aTermin=true;
-				}	
+				}
 			}
-			
+
 			File fichier=new File(_depart);
 			tailleFichier=(int)fichier.length();
 
@@ -62,14 +62,14 @@ public class HuffmanComp extends Compression{
 				fluxLectureBuff.reset();
 				dernierCarac=(byte)fluxLectureBuff.read();
 			}
-			
+
 
 			fluxLectureData.close();
 			fluxLectureBuff.close();
 		}
 		catch(IOException e){
 			System.err.println("Playback error "+e);
-			}
+		}
 	}
 
 	public void monterArbre(boolean v){
@@ -114,10 +114,10 @@ public class HuffmanComp extends Compression{
 		racineArbre=arbre.get(0);
 
 	}
-	
+
 
 	public void chargerListe(boolean v){
-		
+
 		Set<Short> s=tableCodage.keySet();
 		tableDecodage=new HashMap<String,Short>();
 		for(short k : s){
@@ -125,7 +125,7 @@ public class HuffmanComp extends Compression{
 		}
 
 	}
-	
+
 
 	public void lireArbre(Node<Short> n, String str){
 		if(n.valeur!=n.DEF){
@@ -136,32 +136,14 @@ public class HuffmanComp extends Compression{
 			lireArbre(n.gauche,str+"0");
 		}
 	}
-	
-
-	public double estimationComp(){
-		if(nombreOccurences.isEmpty())lireFichier(true);
-		if(tableCodage.isEmpty())chargerListe(true);
-		int tailleIni=tailleFichier*8;
-		int tailleFin=0;
-		Set<Short> s=tableCodage.keySet();
-		for(short k : s){
-			tailleFin+=tableCodage.get(k).length()*nombreOccurences.get(k);
-		}
-		double d=tailleFin*1.0/tailleIni;
-		System.out.println("-------- FORECASTS---------");
-		System.out.println("Non compress			: "+tailleIni+" bit "+tailleIni/8./1000+" Ko");
-		System.out.println("compress				: "+tailleFin+" bit "+tailleFin/8./1000+" Ko");
-		System.out.printf ("CompressionRatio		: %.2f%s\n",(1-d)*100,"%");
-		return d;
-	}
-
 
 	public void compresser(String fin, boolean v){
 		temps=-System.currentTimeMillis();
+		File f1 = new File(fin);
 		if(v){
 			System.out.println("-------- COMPRESSION--------");
 			System.out.println("From                    : "+_depart);
-			System.out.println("To                  : "+fin);
+			System.out.println("To                  : "+"Files/Compressed/"+f1.getName());
 
 		}
 		lireFichier(v);
@@ -207,28 +189,32 @@ public class HuffmanComp extends Compression{
 				code[i2]=tableDecodage.get(s);
 			}
 			HuffmanCompWrite hme=new HuffmanCompWrite(valeur16b,nbBitValeur16b,code,liste,tailleFichier,tailleDernierEntier,dernierCarac);
-			ObjectOutputStream fluxEcriture=new ObjectOutputStream(new FileOutputStream(fin));
+
+			ObjectOutputStream fluxEcriture=new ObjectOutputStream(new FileOutputStream("Files/Compressed/"+f1.getName()));
 			fluxEcriture.writeObject(hme);
 			fluxEcriture.close();
 			temps+=System.currentTimeMillis();
 			System.out.println("Compress ends "+temps+" ms");
-			CSP.CompressRatio(_depart, fin);
+			CSP.CompressRatio(_depart, "Files/Compressed/"+f1.getName());
 		}
 		catch(IOException e){
 			System.err.println(e);
 		}
 	}
-	
+
 	public void decompresser(String fin,boolean v){
+		File f1 = new File(_depart);
 		temps=-System.currentTimeMillis();
 		if(v){
 			System.out.println("-------- DECOMPRESSION------");
-			System.out.println("from                     : "+_depart);
+			System.out.println("from                     : "+"Files/Compressed/"+f1.getName());
 			System.out.println("to                  : "+fin);
 
 		}
 		try{
-			ObjectInputStream fluxLecture=new ObjectInputStream(new BufferedInputStream(new FileInputStream(_depart)));
+			File f2 = new File(fin);
+			System.out.println(f2.getName());
+			ObjectInputStream fluxLecture=new ObjectInputStream(new BufferedInputStream(new FileInputStream("Files/Compressed/"+f2.getName()+"c")));
 			HuffmanCompWrite hme=(HuffmanCompWrite) fluxLecture.readObject();
 			fluxLecture.close();
 			if(v)System.out.println("OK");
@@ -255,10 +241,10 @@ public class HuffmanComp extends Compression{
 			}
 			ChaneCode.delete(ChaneCode.length()-TAILLE_ECR,ChaneCode.length()-TAILLE_ECR+hme.td);
 
-			DataOutputStream fluxEcriture=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(fin)));
+			DataOutputStream fluxEcriture=new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Files/Decompressed/"+f2.getName())));
 			int t=0;
 			Set<String> clef=tableDecodage.keySet();
-			int tailleMin=30; 
+			int tailleMin=30;
 			for(String s:clef){
 				if(s.length()<tailleMin)tailleMin=s.length();
 			}

@@ -2,6 +2,8 @@ package RLE;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Compression {
 	protected String _depart;
@@ -38,13 +40,19 @@ public abstract class Compression {
 			DirectoryChooser chooser = new DirectoryChooser();
 			File defaultDirectory = chooser.showDialog(null);
 			chooser.setInitialDirectory(defaultDirectory);
+			List<String> results = new ArrayList<String>();
+			File[] files = new File(defaultDirectory.getAbsolutePath()).listFiles();
 
 			if (defaultDirectory != null) {
-				String fich = defaultDirectory.getAbsolutePath();
-				String ff = "Files/Decompressed/" + f.getName();
-				tester(fich, ff, v);
+				for (File file : files) {
+					if (file.isFile()) {
+						results.add(file.getAbsolutePath());
+						String fich = file.getAbsolutePath();
+						String ff = "Files/Decompressed/" + file.getName();
+						tester(fich, ff, v);
+					}
+				}
 			}
 		}
-
 	}
 }

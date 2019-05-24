@@ -1,6 +1,4 @@
 package sample;
-
-
 import RLE.RLE;
 import RLE.HuffmanComp;
 import RLE.blockSortingAlgorithm;
@@ -12,13 +10,10 @@ import adaptiveHuffman.encoder.Encoder;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
-
     public Button RLEButton;
     public Button Huffman;
     public Button AdaptiveHuffmanDecode;
@@ -27,7 +22,6 @@ public class Controller implements Initializable {
     public Button ZipMultiFiles;
     public Button ZipDirectory;
     public Button BlockSort;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -35,6 +29,7 @@ public class Controller implements Initializable {
     }
 
     public void RLEButton(ActionEvent actionEvent) {
+
         RLE rc=new RLE("");
         rc.testerTout(true);
     }
@@ -50,7 +45,6 @@ public class Controller implements Initializable {
 
 
     }
-
     public void BlockSortButton(ActionEvent actionEvent) {
         blockSortingAlgorithm bsa = new blockSortingAlgorithm();
         bsa.testerTout(true);
@@ -65,15 +59,12 @@ public class Controller implements Initializable {
         ZipFile zipFile = new ZipFile();
         zipFile.main();
     }
-
     public void ZipMultiFilesButton(ActionEvent actionEvent) {
         ZipFiles zf = new ZipFiles();
         zf.main();
     }
-
     public void ZipDirectoryButton(ActionEvent actionEvent) {
         ZipDir zd = new ZipDir();
         zd.main();
     }
-
 }
