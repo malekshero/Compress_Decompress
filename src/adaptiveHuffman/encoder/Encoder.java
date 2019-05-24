@@ -12,7 +12,7 @@ public class Encoder {
 	public FileInputStream in = null;
 	public BitByteOutputStream out = null;
     
-    public static void main() {
+    public void main() {
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*"));
 		File f = fc.showOpenDialog(null);
@@ -20,7 +20,7 @@ public class Encoder {
 		if(f != null)
 		{
 			String input = f.getAbsolutePath();
-			String output = "Files/Compressed/"+f.getName()+"h";
+			String output = "Files/Compressed/"+f.getName()+"A";
     		Encoder enc = new Encoder(input,output);
     		Tree tree = new Tree();
     		File in = new File(input);
@@ -31,8 +31,9 @@ public class Encoder {
     		System.out.println("Finished compression of: "+in.getName()+" in "+(float)(at-t)/1000000+" ms");
     		System.out.println("Original size: "+in.length()+" bytes");
     		System.out.println("Compressed size: "+out.length()+" bytes");
-    		System.out.println("Compression ratio: "+((float)in.length()/(float)out.length()));
-    	}
+			double all=(double)in.length()/(double)out.length()*100;
+			System.out.printf("CompressionRatio : %.1f%s\n",all,"%");
+		}
 	}
     
     public Encoder(String in, String out) {
@@ -48,11 +49,8 @@ public class Encoder {
 
 
 	}
-
 	public void encode(Tree tree) {
-		
 		try {
-			
 			int c = 0;
 			
 			while((c = in.read()) != -1) {

@@ -1,10 +1,9 @@
 package RLE;
 import java.util.*;
 import java.io.*;
-
 public class RLE extends Compression {
-	private List<Byte> _neutre=null;// caract�re(s) de demarquation
-	private static int _octet=1;// taille de la cha�ne qui se rep�te, en octets
+	private List<Byte> _neutre=null;
+	private static int _octet=1;
 	
 	public RLE(String ad){
 		raz();
@@ -17,10 +16,8 @@ public class RLE extends Compression {
 	}
 	
 	public void chercherNeutre(boolean v) throws IOException{
-		//if(v)System.out.print(">> Find the neutral...    ");
 		BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
 		
-		// on stocke les caract�res d�j� vus dans une table
 		Set<List<Byte>> dejaVu=new HashSet<List<Byte>>();
 		byte[] buff=new byte[_octet];
 		while(fluxLecture.read(buff)==_octet){
@@ -30,25 +27,19 @@ public class RLE extends Compression {
 			dejaVu.add(l);
 		}
 		fluxLecture.close();
-		
-		// on forme une liste de taille octet qui est initialis�e partout � Byte.MIN_VALUE
 		List<Byte> l=new ArrayList<Byte>();
 		for(int i=0;i<_octet;i++){
 			l.add(Byte.MIN_VALUE);
 		}
-		// on essaye de trouver une valeur qui n'est pas dans le fichier
+
 		try{
 			while(dejaVu.contains(l)){
 				l=incrementer(l);
 			}
 			_neutre=l;
-			//if(v)System.out.print("OK ( [");
-			//for(byte by:l)
-			//	System.out.print(" "+by);
-			//System.out.println(" ] )");
+
 		}
 		catch(NullPointerException e){
-			// si on n'a pas trouver un neutre de taille octet, on essaye avec octet+1
 			System.out.println(e.getMessage());
 			_octet++;
 			chercherNeutre(v);
@@ -61,26 +52,21 @@ public class RLE extends Compression {
 			System.out.println("-------- COMPRESSION--------");
 			System.out.println("from                    : "+_depart);
 			System.out.println("To                  : "+fin);
-		//	System.out.println("Method                : Repetition");
 		}
 		try{
 			chercherNeutre(v);
 			
-			//if(v)System.out.print(">> Transcription...        ");
 			BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
 			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream(fin));
-			
-			// on ecrit le nombre d'octet du motif, puis le neutre
 			fluxEcriture.write(_octet);
 			for(byte by:_neutre){
 				fluxEcriture.write(by);
 			}
 			
 			int nb=0;
-			byte[] buff=new byte[_octet];// tampons qui s�re � la lecture
-			byte[] prebuff=new byte[_octet];// sauvegarde du pr�cedant, pour g�rer le EOF
-			
-			// l'algorithme doit avoir tourn� une fois avant sa premi�re fois => mark
+			byte[] buff=new byte[_octet];
+			byte[] prebuff=new byte[_octet];
+
 			fluxLecture.mark(_octet);
 			fluxLecture.read(buff);
 			List<Byte> lu=new ArrayList<Byte>(),dernier=new ArrayList<Byte>();
@@ -91,15 +77,15 @@ public class RLE extends Compression {
 			fluxLecture.reset();
 			int nbLu=0;
 			
-			// codage
+
 			while((nbLu=fluxLecture.read(buff))==_octet){
 				lu=new ArrayList<Byte>();
 				for(byte by:buff)
 					lu.add(by);
-				if(dernier.equals(lu) && nb<Byte.MAX_VALUE-1){// la cha�ne n'est pas finie
+				if(dernier.equals(lu) && nb<Byte.MAX_VALUE-1){
 					nb++;
 				}
-				else{// la cha�ne est finie
+				else{
 					ecrire(dernier,nb,fluxEcriture);
 					for(int i=0;i<lu.size();i++){
 						dernier.set(i, lu.get(i));
@@ -110,7 +96,7 @@ public class RLE extends Compression {
 					prebuff[i]=buff[i];
 				}
 			}
-			// quand le fichier est fini, il faut vider les tampons, et v�rifiers tous les cas possibles
+
 			if(nbLu!=-1){ 
 				fluxEcriture.write(prebuff);
 				if(nbLu!=_octet)
@@ -126,14 +112,13 @@ public class RLE extends Compression {
 			System.out.println("OK");
 			temps+=System.currentTimeMillis();
 			System.out.println("Compress ends "+temps+" ms");
-			CSP.tauxComp(_depart, fin);
+			CSP.CompressRatio(_depart, fin);
 		}
 		catch(Exception e){
 			System.out.println(e);
 		}
 	}
 	
-	// ecrit les informations necessaires quelque soit le nombre de r�p�titions
 	public void ecrire(List<Byte> carac, int nb, BufferedOutputStream b2) throws IOException{
 		if(nb==1)
 			for(Byte by:carac)
@@ -153,8 +138,6 @@ public class RLE extends Compression {
 		}
 	}
 	
-	// incremente un List<Byte> avec le m�me syst�me que les d�cimaux (retenue...)
-	// lance NullPointerException quand la borne sup�rieure est d�pac�e.
 	public List<Byte> incrementer(List<Byte> l) throws NullPointerException {
 		for(int i=0;i<l.size();i++){
 			if(l.get(i)==Byte.MAX_VALUE){
@@ -174,29 +157,19 @@ public class RLE extends Compression {
 			System.out.println("-------- DECOMPRESSION------");
 			System.out.println("from                    : "+_depart);
 			System.out.println("To                      : "+fin);
-			//System.out.println("Method	              : Repetition");
 		}
 		try{
-			//if(v)System.out.print(">> bytes number...       ");
 			BufferedInputStream fluxLecture=new BufferedInputStream(new FileInputStream(_depart));
 			BufferedOutputStream fluxEcriture=new BufferedOutputStream(new FileOutputStream(fin));
 			
-			// on lit les informations de l'ent�te
 			_octet=fluxLecture.read();
-			//if(v)System.out.println("OK ("+_octet+")");
-			//if(v)System.out.print(">> Neutral...               ");
 			byte[] buff=new byte[_octet];
 			fluxLecture.read(buff);
 			byte[] neutre=new byte[_octet];
-			//if(v)System.out.print("OK ( [");
-			for(int i=0;i<_octet;i++){
-				neutre[i]=buff[i];
-			//	System.out.print(" "+neutre[i]);
+
+			for(int i=0;i<_octet;i++) {
+				neutre[i] = buff[i];
 			}
-			//System.out.println(" ] )");
-			
-			// on traduit
-			//if(v)System.out.print(">> Transcription...        ");
 			int nbLu=0;
 			while((nbLu=fluxLecture.read(buff))==_octet){
 				int i=0;
@@ -216,7 +189,7 @@ public class RLE extends Compression {
 						fluxEcriture.write(buff);
 				}
 			}
-			// on g�re la fin du fichier
+
 			if(nbLu==-1){
 				fluxEcriture.write(buff);
 			}
@@ -226,20 +199,12 @@ public class RLE extends Compression {
 			
 			fluxLecture.close();
 			fluxEcriture.close();
-			//if(v) System.out.println("OK");
+
 			temps+=System.currentTimeMillis();
 			System.out.println("End of decompression "+temps+" ms");
-			
 		}
 		catch(IOException e){
 			System.out.println(e);
 		}
 	}
-	
-	
-	public static void main(String[] f){
-
-
-	}
-	
 }

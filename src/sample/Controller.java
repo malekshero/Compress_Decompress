@@ -3,6 +3,7 @@ package sample;
 
 import RLE.RLE;
 import RLE.HuffmanComp;
+import RLE.blockSortingAlgorithm;
 import ZipCompress.ZipDir;
 import ZipCompress.ZipFile;
 import ZipCompress.ZipFiles;
@@ -25,6 +26,7 @@ public class Controller implements Initializable {
     public Button ZipFileCompress;
     public Button ZipMultiFiles;
     public Button ZipDirectory;
+    public Button BlockSort;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,6 +51,11 @@ public class Controller implements Initializable {
 
     }
 
+    public void BlockSortButton(ActionEvent actionEvent) {
+        blockSortingAlgorithm bsa = new blockSortingAlgorithm();
+        bsa.testerTout(true);
+    }
+
     public void AdaptiveHuffmanEncodeButton(ActionEvent actionEvent) {
         Encoder encode= new Encoder();
         encode.main();
@@ -68,4 +75,5 @@ public class Controller implements Initializable {
         ZipDir zd = new ZipDir();
         zd.main();
     }
+
 }

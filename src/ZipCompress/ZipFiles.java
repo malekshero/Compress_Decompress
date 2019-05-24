@@ -38,7 +38,7 @@ public class ZipFiles {
         }
     }
 
-    public static void main() {
+    public  void main() {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*"));
         List<File> f=  fc.showOpenMultipleDialog(null);

@@ -41,7 +41,7 @@ public class ZipDir extends SimpleFileVisitor<Path> {
         return FileVisitResult.CONTINUE;
     }
 
-    public static void main() {
+    public void main() {
 
         DirectoryChooser chooser = new DirectoryChooser();
         File defaultDirectory = chooser.showDialog(null);

@@ -2,14 +2,14 @@ package RLE;
 
 import java.util.*;
 
-public class Noeud<T> {
-	public Noeud<T> droite;
-	public Noeud<T> gauche;
+public class Node<T> {
+	public Node<T> droite;
+	public Node<T> gauche;
 	public int poid;
 	public T valeur;
 	public final T DEF=null;
 	
-	public Noeud(Noeud<T> tdroite, Noeud<T> tgauche){
+	public Node(Node<T> tdroite, Node<T> tgauche){
 		droite=tdroite;
 		gauche=tgauche;
 		valeur=DEF;
@@ -18,7 +18,7 @@ public class Noeud<T> {
 		else poid=0;
 	}
 	
-	public Noeud(T tvaleur, int frequence){
+	public Node(T tvaleur, int frequence){
 		poid=frequence;
 		valeur=tvaleur;
 		droite=null;
@@ -30,8 +30,8 @@ public class Noeud<T> {
 	}
 }
 
-class NoeudComparator<T> implements Comparator<Noeud<T>>{
-	public int compare(Noeud<T> n1, Noeud<T> n2){
+class NodeComparator<T> implements Comparator<Node<T>>{
+	public int compare(Node<T> n1, Node<T> n2){
 		if(n1.poid>n2.poid)return 1;
 		if(n1.poid==n2.poid)return 0;
 		return -1;

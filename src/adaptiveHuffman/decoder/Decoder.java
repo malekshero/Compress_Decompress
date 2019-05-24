@@ -12,7 +12,7 @@ public class Decoder {
 	private BitInputStream in = null;
 	private FileOutputStream out = null;
 	
-    public static void main() {
+    public void main() {
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*") );
 		fc.setInitialDirectory(new File("C:\\Users\\Malek Shero\\Desktop\\multimidia_project\\Files\\Compressed\\"));

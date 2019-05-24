@@ -31,14 +31,13 @@ public class ZipFile {
         }
     }
 
-    public static void main() {
+    public  void main() {
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*"));
         File f = fc.showOpenDialog(null);
 
         if(f != null) {
             String input = f.getAbsolutePath();
-           // String output = "Files/Compressed/" + f.getName() + "h";
             zipFile(input);
         }
     }

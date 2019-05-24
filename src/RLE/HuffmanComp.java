@@ -1,28 +1,16 @@
 package RLE;
-
 import java.io.*;
 import java.util.*;
-
 public class HuffmanComp extends Compression{
 	private Map<Short,String> tableCodage;
-	// table <motif 16bit : cha�ne de 0 et de 1
 	private Map<String,Short> tableDecodage;
-	// reciproque de la pr�cedante
 	private Map<Short,Integer> nombreOccurences;
-	// nombre d'apparition du motif dans le fichier
-	private Noeud<Short> racineArbre;
-	// arbre de Huffman
+	private Node<Short> racineArbre;
 	private int tailleFichier;
-	// taille du fichier
 	public final static int TAILLE_ECR=16;
-	// taille du motif (en bit)
 	private long temps=0;
 	private byte dernierCarac=-1;
-	// dernier caractere dans le cas de fichiers de taille impaire (-1 sinon)
 
-	
-	//========== CONSTRUCTEURS =================
-	
 	public HuffmanComp(){
 		nombreOccurences=new HashMap<Short,Integer>();
 		tableCodage= new HashMap<Short,String>();
@@ -45,22 +33,19 @@ public class HuffmanComp extends Compression{
 		this();
 		_depart=adresseFichierDepart;
 	}
-	
-	// pour obtenir la table des fr�quences
+
 	public void lireFichier(boolean verbeux){
-	//	if(verbeux)System.out.print(">> Reading the file...   ");
 		try{
-			// on cr�� 2 flux d'entr�e, pour g�rer le cas d'un fichier de taille impaire :
 			BufferedInputStream fluxLectureBuff= new BufferedInputStream(new FileInputStream(_depart));
 			DataInputStream fluxLectureData=new DataInputStream(fluxLectureBuff);
 			boolean aTermin=false;
 			short caracLu=0;
-			// on lance la boucle de lecture qui compte l'occurences des groupes de 16 bits  :
-			// prendre comme crit�re d'arret le lancement d'une exeception est ici plus rapide qu'un for
+
+
 			while(!aTermin){
 				try{
 					caracLu=fluxLectureData.readShort();
-					// on marque le flux BufferedInputStream pour revenir en arri�re sans utiliser un flux Random Access
+
 					fluxLectureBuff.mark(1);
 					if(!nombreOccurences.containsKey(caracLu)) nombreOccurences.put(caracLu,1);
 					else nombreOccurences.put(caracLu,nombreOccurences.get(caracLu)+1);
@@ -72,13 +57,13 @@ public class HuffmanComp extends Compression{
 			
 			File fichier=new File(_depart);
 			tailleFichier=(int)fichier.length();
-			// dans le cas d'un fichier impair :
+
 			if(tailleFichier%2==1){
 				fluxLectureBuff.reset();
 				dernierCarac=(byte)fluxLectureBuff.read();
 			}
 			
-			//if(verbeux)System.out.println("OK");
+
 			fluxLectureData.close();
 			fluxLectureBuff.close();
 		}
@@ -86,28 +71,20 @@ public class HuffmanComp extends Compression{
 			System.err.println("Playback error "+e);
 			}
 	}
-	
-	//========== MONTAGE ================
-	
-	// pour monter l'abre binaire
+
 	public void monterArbre(boolean v){
-		//if(v)System.out.print(">> Montage de l'arbre...   ");
-		// cr�ation de l'arbre comme une liste d'un noeud pas valeur
-		List<Noeud<Short>> arbre=new ArrayList<Noeud<Short>>();
+		List<Node<Short>> arbre=new ArrayList<Node<Short>>();
 		Set<Short> shortsPresents=nombreOccurences.keySet();
 		for(Short k : shortsPresents){
-			Noeud<Short> n = new Noeud<Short>(k,nombreOccurences.get(k));
+			Node<Short> n = new Node<Short>(k,nombreOccurences.get(k));
 			arbre.add(n);
 		}
-		// on le trie une premi�re fois :
-		Collections.sort(arbre, new NoeudComparator());
-		// on regroupe les noeuds :
+
+		Collections.sort(arbre, new NodeComparator());
 		while(arbre.size()>1){
-			// on regroupe les 2 premiers :
-			Noeud<Short> n= new Noeud<Short>(arbre.get(0),arbre.get(1));
+			Node<Short> n= new Node<Short>(arbre.get(0),arbre.get(1));
 			arbre.remove(0);
 			arbre.remove(0);
-			// on replace le noeud � sa place. 2 cas particuliers :
 			if(arbre.size()==0){
 				arbre.add(n);
 			}
@@ -115,7 +92,7 @@ public class HuffmanComp extends Compression{
 				arbre.add(arbre.size(),n);
 			}
 			else{
-				// pour trouver sa place on commence par une dichotomie :
+
 				int a=1, b=arbre.size(),c=0;
 				int p1=0,p2=n.poid;
 				while(b-a>10){
@@ -124,7 +101,7 @@ public class HuffmanComp extends Compression{
 					if(p1<=p2)a=c;
 					else b=c;
 				}
-				// puis par test successifs :
+
 				int index=-1;
 				a--;
 				while(a<arbre.size() && index==-1){
@@ -135,10 +112,10 @@ public class HuffmanComp extends Compression{
 			}
 		}
 		racineArbre=arbre.get(0);
-		//if(v)System.out.println("OK");
+
 	}
 	
-	// pour obtenir les tables
+
 	public void chargerListe(boolean v){
 		
 		Set<Short> s=tableCodage.keySet();
@@ -146,11 +123,11 @@ public class HuffmanComp extends Compression{
 		for(short k : s){
 			tableDecodage.put(tableCodage.get(k),k);
 		}
-		//if(v)System.out.println("OK");
+
 	}
 	
-	// fonction r�cusrcive pour obtenir le code binaire associ� � l'arbre :
-	public void lireArbre(Noeud<Short> n, String str){
+
+	public void lireArbre(Node<Short> n, String str){
 		if(n.valeur!=n.DEF){
 			tableCodage.put(n.valeur, str);
 		}
@@ -160,7 +137,7 @@ public class HuffmanComp extends Compression{
 		}
 	}
 	
-	//=========  INTERFACE  ==============
+
 	public double estimationComp(){
 		if(nombreOccurences.isEmpty())lireFichier(true);
 		if(tableCodage.isEmpty())chargerListe(true);
@@ -178,7 +155,7 @@ public class HuffmanComp extends Compression{
 		return d;
 	}
 
-	// pour compresser :
+
 	public void compresser(String fin, boolean v){
 		temps=-System.currentTimeMillis();
 		if(v){
@@ -189,16 +166,14 @@ public class HuffmanComp extends Compression{
 		}
 		lireFichier(v);
 		monterArbre(v);
-		//if(v)System.out.print(">> Reading the tree...   ");
 		lireArbre(racineArbre,"");
 		chargerListe(v);
 		try{
-		//	if(v)System.out.print(">> Encode...             ");
+
 			DataInputStream fluxLecture=new DataInputStream(new BufferedInputStream(new FileInputStream(_depart)));
 			StringBuffer chaneBinaire=new StringBuffer();
 			boolean aTermin=false;
 			short shortLu=0;
-			// on relit le fichier en ajoutant la cha�ne de 0 et 1 corespondant au code
 			while(!aTermin){
 				try{
 					shortLu=fluxLecture.readShort();
@@ -206,26 +181,19 @@ public class HuffmanComp extends Compression{
 				}
 				catch(IOException e){
 					aTermin=true;
-					// crit�re d'arret plus rapide
 				}
 			}
-			//if(v)System.out.println("OK");
 			fluxLecture.close();
-			
-			//if(v)System.out.print(">> Creation de l'objet...  ");
 			short[] liste=new short[chaneBinaire.length()/(TAILLE_ECR)+1];
 			int nombreBitsEcrits=0;
 			int nombreEcritures=0;
-			// donnees :
 			while(chaneBinaire.length()>nombreBitsEcrits+TAILLE_ECR){
 				liste[nombreEcritures]=string2Short(chaneBinaire.substring(nombreBitsEcrits, nombreBitsEcrits+TAILLE_ECR));
 				nombreBitsEcrits+=TAILLE_ECR;
 				nombreEcritures++;
 			}
 			liste[nombreEcritures]=string2Short(chaneBinaire.substring(nombreBitsEcrits));
-			// nombre de bit en trop :
 			int tailleDernierEntier=TAILLE_ECR-chaneBinaire.length()%TAILLE_ECR;
-			// table de decodage :
 			int tailleTable=tableDecodage.size();// taille de la table
 			int[] valeur16b=new int[tailleTable];// valeurs en clair
 			byte[] nbBitValeur16b=new byte[tailleTable];// nb de bit de la valeur cod�e associ�e
@@ -238,18 +206,13 @@ public class HuffmanComp extends Compression{
 				nbBitValeur16b[i2]=(byte)s.length();
 				code[i2]=tableDecodage.get(s);
 			}
-			HuffmanCompEcrit hme=new HuffmanCompEcrit(valeur16b,nbBitValeur16b,code,liste,tailleFichier,tailleDernierEntier,dernierCarac);
-			//if(v)System.out.println("OK ");
-			
-			// il suffit de l'�crire
-		//	if(v)System.out.print(">> writing...             ");
+			HuffmanCompWrite hme=new HuffmanCompWrite(valeur16b,nbBitValeur16b,code,liste,tailleFichier,tailleDernierEntier,dernierCarac);
 			ObjectOutputStream fluxEcriture=new ObjectOutputStream(new FileOutputStream(fin));
 			fluxEcriture.writeObject(hme);
 			fluxEcriture.close();
-			//if(v)System.out.println("OK");
 			temps+=System.currentTimeMillis();
 			System.out.println("Compress ends "+temps+" ms");
-			CSP.tauxComp(_depart, fin);
+			CSP.CompressRatio(_depart, fin);
 		}
 		catch(IOException e){
 			System.err.println(e);
@@ -262,18 +225,13 @@ public class HuffmanComp extends Compression{
 			System.out.println("-------- DECOMPRESSION------");
 			System.out.println("from                     : "+_depart);
 			System.out.println("to                  : "+fin);
-			//System.out.println("Methode               : Huffman");
+
 		}
 		try{
-			// on lit l'objet :
-			//if(v)System.out.print(">> reading...              ");
 			ObjectInputStream fluxLecture=new ObjectInputStream(new BufferedInputStream(new FileInputStream(_depart)));
-			HuffmanCompEcrit hme=(HuffmanCompEcrit) fluxLecture.readObject();
+			HuffmanCompWrite hme=(HuffmanCompWrite) fluxLecture.readObject();
 			fluxLecture.close();
 			if(v)System.out.println("OK");
-			
-			// on change la forme de ses donn�es :
-			//if(v)System.out.print(">> Mise en chacne...       ");
 			int tailleTable=hme.decI.length;
 			tableDecodage=new HashMap<String,Short>();// 2x plus rapide que TreeMap
 			try{
@@ -283,12 +241,11 @@ public class HuffmanComp extends Compression{
 				}
 			}
 			catch(Exception e){
-				// crit�re d'arret
 			}
 			StringBuffer ChaneCode=new StringBuffer();
 			String code16b;
 			for(short i:hme.d){
-				// on recup�re 16 bits de donn�e et on les remet sous une bonne forme
+
 				code16b=Integer.toBinaryString(i);
 				if(i<0)code16b=code16b.substring(16);
 				while(code16b.length()<TAILLE_ECR){
@@ -296,27 +253,19 @@ public class HuffmanComp extends Compression{
 				}
 				ChaneCode.append(code16b);
 			}
-			// on enl�ve les derniers bits non porteur d'information :
 			ChaneCode.delete(ChaneCode.length()-TAILLE_ECR,ChaneCode.length()-TAILLE_ECR+hme.td);
-		//	if(v)System.out.println("OK");
-			//if(v)System.out.print(">> Ecriture...             ");
-			
-			// decodage :
+
 			DataOutputStream fluxEcriture=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(fin)));
 			int t=0;
 			Set<String> clef=tableDecodage.keySet();
-			// on mesure la taille minimale du code de Huffman
-			// on choisit 30 comme depart, car cela representerait un algorythme tr�s mauvais (on est sur 16bits)
 			int tailleMin=30; 
 			for(String s:clef){
 				if(s.length()<tailleMin)tailleMin=s.length();
 			}
-			// on decode et on �crit
 			boolean aTermin=false;
 			while(!aTermin){
 				int j=tailleMin;
 				try{
-					// on commence � chercher une entr�e avec la taille minimale
 					while(tableDecodage.get(ChaneCode.substring(t, t+j))==null){
 						j++;
 					}
@@ -327,11 +276,9 @@ public class HuffmanComp extends Compression{
 				}
 				t+=j;
 			}
-			// on rajoute les caract�res finaux stock�s en clair
 			if(hme.p!=-1){
 				fluxEcriture.write(hme.p);
 			}
-			//if(v)System.out.println("OK");
 			temps+=System.currentTimeMillis();
 			System.out.println(" decompression ends "+temps+" ms");
 			fluxEcriture.close();
@@ -343,27 +290,7 @@ public class HuffmanComp extends Compression{
 			System.out.println(e);
 		}
 	}
-	
-	//============ GETTERS & SETTERS ================
-	
-	public Noeud<Short> getArbre(){
-		return racineArbre;
-	}
-	
-	public Map<Short,Integer> tableOccurence(){
-		return nombreOccurences;
-	}
-	
-	public Map<String,Short> tableDecodage(){
-		return tableDecodage;
-	}
-	
-	public int getOccur(int val){
-		return nombreOccurences.get(val);
-	}
 
-	// converti une cha�ne de 0 et de 1 en short
-	// la cha�ne est vue avec une convention de signe de type unsigned
 	public static short string2Short(String str){
 		if(str.length()==TAILLE_ECR){
 			if(str.charAt(0)=='0')return Short.parseShort(str,2);
@@ -374,25 +301,17 @@ public class HuffmanComp extends Compression{
 		return Short.parseShort(str,2);
 	}
 
-	//=========== TEST ==============
-	
-	public static void main(String[] args){
-//		HuffmanComp hc=new HuffmanComp("");
-//		hc.tester("12.jpg", "312.jpg", true);
-//		//hc.testerTout(true);
-	}
 }
 
-class HuffmanCompEcrit implements Serializable{
-	// les noms des variables sont petits car ils apparaissent dans le fichier compress�
-	int[] decI;//chaine binaire
-	byte[] decT;//taille de la cha�ne (pour les 0 devant)
-	short[] decS;//valeur associ�e
-	short[] d;//table de donnees
-	int td;//taille dernier int
-	double t;//taille
-	byte p;//pour la parit�
-	HuffmanCompEcrit(int[] chaneBinaire,byte[] tailleChane,short[] valeurChane, short[] donnes, double taille,int tdi, byte dernierByte){
+class HuffmanCompWrite implements Serializable{
+	int[] decI;
+	byte[] decT;
+	short[] decS;
+	short[] d;
+	int td;
+	double t;
+	byte p;
+	HuffmanCompWrite(int[] chaneBinaire, byte[] tailleChane, short[] valeurChane, short[] donnes, double taille, int tdi, byte dernierByte){
 		decI=chaneBinaire;
 		decT=tailleChane;
 		decS=valeurChane;
@@ -401,5 +320,4 @@ class HuffmanCompEcrit implements Serializable{
 		td=tdi;
 		p=dernierByte;
 	}
-
 }
