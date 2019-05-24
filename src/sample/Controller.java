@@ -3,6 +3,9 @@ package sample;
 
 import RLE.RLE;
 import RLE.HuffmanComp;
+import ZipCompress.ZipDir;
+import ZipCompress.ZipFile;
+import ZipCompress.ZipFiles;
 import adaptiveHuffman.decoder.Decoder;
 import adaptiveHuffman.encoder.Encoder;
 import javafx.event.ActionEvent;
@@ -19,6 +22,9 @@ public class Controller implements Initializable {
     public Button Huffman;
     public Button AdaptiveHuffmanDecode;
     public Button AdaptiveHuffmanEncode;
+    public Button ZipFileCompress;
+    public Button ZipMultiFiles;
+    public Button ZipDirectory;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,5 +52,20 @@ public class Controller implements Initializable {
     public void AdaptiveHuffmanEncodeButton(ActionEvent actionEvent) {
         Encoder encode= new Encoder();
         encode.main();
+    }
+
+    public void ZipFileCompressButton(ActionEvent actionEvent) {
+        ZipFile zipFile = new ZipFile();
+        zipFile.main();
+    }
+
+    public void ZipMultiFilesButton(ActionEvent actionEvent) {
+        ZipFiles zf = new ZipFiles();
+        zf.main();
+    }
+
+    public void ZipDirectoryButton(ActionEvent actionEvent) {
+        ZipDir zd = new ZipDir();
+        zd.main();
     }
 }
