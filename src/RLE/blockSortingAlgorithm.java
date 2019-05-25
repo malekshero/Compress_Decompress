@@ -163,7 +163,6 @@ public class blockSortingAlgorithm extends Compression{
 		return donneesClair;
 	}
 
-	
 	public void raz(){
 		_depart=null;
 	}

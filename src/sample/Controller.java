@@ -1,4 +1,8 @@
 package sample;
+import Arithmatic.AdaptiveArithmeticCompress;
+import Arithmatic.AdaptiveArithmeticDecompress;
+import Arithmatic.ArithmeticCompress;
+import Arithmatic.ArithmeticDecompress;
 import RLE.RLE;
 import RLE.HuffmanComp;
 import RLE.blockSortingAlgorithm;
@@ -10,6 +14,8 @@ import adaptiveHuffman.encoder.Encoder;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,6 +30,10 @@ public class Controller implements Initializable {
     public Button BlockSort;
     public Button AdaptiveEncodeFiles;
     public Button AdaptiveDecodeFiles;
+    public Button AdaptiveArithmaticCompress;
+    public Button AdaptiveArithmaticDecompress;
+    public Button ArithmaticDecompress;
+    public Button ArithmaticCompress;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,5 +89,26 @@ public class Controller implements Initializable {
     public void AdaptiveDecodeFilesButton(ActionEvent actionEvent) {
         Decoder De = new Decoder();
         De.decodeFiles();
+    }
+
+    public void AdaptiveArithmaticCompressButton(ActionEvent actionEvent) throws IOException {
+        AdaptiveArithmeticCompress a = new AdaptiveArithmeticCompress();
+        a.mains();
+
+    }
+
+    public void AdaptiveArithmaticDecompressButton(ActionEvent actionEvent) throws IOException {
+        AdaptiveArithmeticDecompress a = new AdaptiveArithmeticDecompress();
+        a.mains();
+    }
+
+    public void ArithmaticCompressButton(ActionEvent actionEvent) throws IOException {
+        ArithmeticCompress ac = new ArithmeticCompress();
+        ac.mains();
+    }
+
+    public void ArithmaticDecompressButton(ActionEvent actionEvent) throws IOException {
+        ArithmeticDecompress ac = new ArithmeticDecompress();
+        ac.mains();
     }
 }
