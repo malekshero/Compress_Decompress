@@ -16,6 +16,7 @@ import adaptiveHuffman.encoder.Encoder;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import shanonn.Shannonfano;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,6 +43,7 @@ public class Controller implements Initializable {
     public Button LZW;
     public Button LZ771;
     public Button LZWFiles;
+    public Button shanonnFano;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -148,5 +150,11 @@ public class Controller implements Initializable {
     public void LZWFilesButton(ActionEvent actionEvent) throws IOException {
         LZWCompression lzw = new LZWCompression();
         lzw.mainsFiles();
+    }
+
+    public void shanonnFanoButton(ActionEvent actionEvent) throws IOException {
+        Shannonfano shannonfano = new Shannonfano();
+        shannonfano.compress();
+        shannonfano.extract();
     }
 }

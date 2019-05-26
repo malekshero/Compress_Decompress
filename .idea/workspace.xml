@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Add LZ77 Algorithm">
-      <change afterPath="$PROJECT_DIR$/src/LZW/LZWCompression.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Add LZW Algorithm">
+      <change afterPath="$PROJECT_DIR$/src/shanonn/Shannonfano.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/RLE/CSP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/RLE/CSP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/RLE/Compression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/RLE/Compression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/RLE/TypeFichier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/multimidia_project/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/multimidia_project/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LZ77/LZ77.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LZ77/LZ77.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RLE/CSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RLE/CSP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RLE/Compression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RLE/Compression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -71,17 +61,18 @@
     <session id="-943003184">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.62" value="1" />
           <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -89,15 +80,15 @@
           <entry key="dummy" value="36" />
           <entry key="fxml" value="7" />
           <entry key="gitignore" value="47" />
-          <entry key="java" value="3160" />
-          <entry key="txt" value="249" />
+          <entry key="java" value="3186" />
+          <entry key="txt" value="250" />
           <entry key="xml" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3160" />
-          <entry key="PLAIN_TEXT" value="332" />
+          <entry key="JAVA" value="3186" />
+          <entry key="PLAIN_TEXT" value="333" />
           <entry key="XML" value="61" />
         </counts>
       </usages-collector>
@@ -106,7 +97,7 @@
           <entry key="csv" value="4" />
           <entry key="fxml" value="7" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="121" />
+          <entry key="java" value="123" />
           <entry key="jpg" value="43" />
           <entry key="md" value="1" />
           <entry key="txt" value="3" />
@@ -117,7 +108,7 @@
         <counts>
           <entry key="CSV" value="4" />
           <entry key="Image" value="43" />
-          <entry key="JAVA" value="121" />
+          <entry key="JAVA" value="123" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="XML" value="8" />
         </counts>
@@ -131,19 +122,19 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="97" column="100" lean-forward="true" selection-start-line="97" selection-start-column="100" selection-end-line="97" selection-end-column="100" />
+            <state relative-caret-position="357">
+              <caret line="102" column="104" lean-forward="true" selection-start-line="102" selection-start-column="104" selection-end-line="102" selection-end-column="104" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="149" selection-start-line="149" selection-end-line="149" />
+            <state relative-caret-position="440">
+              <caret line="156" column="27" lean-forward="true" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,7 +145,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LZ77/LZ77.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
+            <state relative-caret-position="4260">
               <caret line="227" selection-start-line="227" selection-end-line="227" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -166,13 +157,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="39" />
+            <state relative-caret-position="120">
+              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shanonn/Shannonfano.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3214" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LZW/LZWCompression.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -191,7 +201,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RLE/Compression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="680">
               <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -259,7 +269,6 @@
         <option value="$PROJECT_DIR$/src/Arithmatic/ArithmeticDecoder.java" />
         <option value="$PROJECT_DIR$/src/Arithmatic/BitOutputStream.java" />
         <option value="$PROJECT_DIR$/src/Arithmatic/AdaptiveArithmeticCompress.java" />
-        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Arithmatic/ArithmeticDecompress.java" />
         <option value="$PROJECT_DIR$/src/Arithmatic/ArithmeticCoderBase.java" />
         <option value="$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java" />
@@ -271,8 +280,10 @@
         <option value="$PROJECT_DIR$/src/RLE/Compression.java" />
         <option value="$PROJECT_DIR$/src/LZWCompression.java" />
         <option value="$PROJECT_DIR$/src/LZ77/LZ77.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/LZW/LZWCompression.java" />
+        <option value="$PROJECT_DIR$/src/shanonn/Shannonfano.java" />
+        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
       </list>
     </option>
   </component>
@@ -326,20 +337,7 @@
               <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="multimidia_project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="adaptiveHuffman" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="multimidia_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="adaptiveHuffman" type="462c0819:PsiDirectoryNode" />
-              <item name="encoder" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="multimidia_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="LZW" type="462c0819:PsiDirectoryNode" />
+              <item name="shanonn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="multimidia_project" type="b2602c69:ProjectViewProjectNode" />
@@ -362,7 +360,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558841652963" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558896261298" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/antlar to java lib/junit-4.10.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -372,17 +370,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Malek Shero\Desktop\multimidia_project\src\AdabtiveHuffman" />
-      <recent name="C:\Users\Malek Shero\Desktop\multimidia_project" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Malek Shero\Desktop\multimidia_project\src" />
       <recent name="C:\Users\Malek Shero\Desktop\multimidia_project" />
       <recent name="C:\Users\Malek Shero\Desktop\multimidia_project\src\RLE" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="shanonn" />
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Malek Shero\Desktop\multimidia_project\src\AdabtiveHuffman" />
+      <recent name="C:\Users\Malek Shero\Desktop\multimidia_project" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -623,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558830726664</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add LZW Algorithm">
+      <created>1558841697780</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1558841697780</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -631,8 +637,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19062027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19364598" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -641,7 +648,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.396072" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.396072" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -682,20 +689,14 @@
     <MESSAGE value="Add compress AllFiles in Directory" />
     <MESSAGE value="Add Arithmetic Algorithm&#10;Add Adaptive Arithmetic Algorithm&#10;Some Edits" />
     <MESSAGE value="Add LZ77 Algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add LZ77 Algorithm" />
+    <MESSAGE value="Add LZW Algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add LZW Algorithm" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/RLE/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ZipCompress/ZipFiles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="860">
@@ -733,9 +734,7 @@
     <entry file="file://$PROJECT_DIR$/src/Arithmatic/CheckedFrequencyTable.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Arithmatic/PpmDecompress.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Arithmatic/PpmDecompress.java" />
     <entry file="file://$PROJECT_DIR$/src/ArithmaticTest/ArithmeticCompressTest.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -756,19 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-181">
           <caret column="19" selection-start-column="19" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -785,13 +771,7 @@
     <entry file="file://$PROJECT_DIR$/Files/Decompressed/3.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Arithmatic/PpmCompress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1261">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Arithmatic/PpmCompress.java" />
     <entry file="file://$PROJECT_DIR$/src/Arithmatic/ArithmeticDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -810,22 +790,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ArithmaticTest/PpmCompressTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="20" column="25" selection-start-line="10" selection-end-line="11" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ArithmaticTest/PpmCompressTest.java" />
     <entry file="file://$PROJECT_DIR$/src/StreamsLZ77/BitOutputStream.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -843,9 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -853,21 +818,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="19" selection-start-column="19" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Decompressed/doughari-decompressed.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Compressed/doughari-compressed.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Compressed/2-compressed.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/doughari-decompressed.txt" />
+    <entry file="file://$PROJECT_DIR$/Files/Compressed/doughari-compressed.txt" />
+    <entry file="file://$PROJECT_DIR$/Files/Compressed/2-compressed.jpg" />
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -896,59 +852,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RLE/Compression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#int2bin#0;class#Compression#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="97" column="100" lean-forward="true" selection-start-line="97" selection-start-column="100" selection-end-line="97" selection-end-column="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Compressed/1-compressed.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Decompressed/1-decompressed.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Decompressed/2-decompressed.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="149" selection-start-line="149" selection-end-line="149" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Decompressed/1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Compressed/1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Compressed/2.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Files/Decompressed/2.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Files/Compressed/1-compressed.jpg" />
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/1-decompressed.jpg" />
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/2-decompressed.jpg" />
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/Files/Compressed/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/Files/Compressed/2.jpg" />
+    <entry file="file://$PROJECT_DIR$/Files/Decompressed/2.jpg" />
     <entry file="file://$PROJECT_DIR$/src/LZ77/LZ77.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="4260">
           <caret line="227" selection-start-line="227" selection-end-line="227" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -956,10 +869,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java">
+    <entry file="file://$PROJECT_DIR$/src/RLE/Compression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="39" />
+        <state relative-caret-position="680">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#int2bin#0;class#Compression#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -973,6 +890,46 @@
             <element signature="method#to12bit#0;class#LZWCompression#0" />
             <element signature="method#getvalue#0;class#LZWCompression#0" />
             <element signature="method#LZW_Decompress#0;class#LZWCompression#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/decoder/Decoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/adaptiveHuffman/encoder/Encoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shanonn/Shannonfano.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3214" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="102" column="104" lean-forward="true" selection-start-line="102" selection-start-column="104" selection-end-line="102" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="156" column="27" lean-forward="true" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
