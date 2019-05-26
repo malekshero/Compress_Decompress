@@ -36,7 +36,12 @@ public abstract class Compression {
 			String ff = "Files/Decompressed/"+f.getName();
 			tester(fich,ff,v);
 		}
-		else {
+
+	}
+
+
+	public void RleFiles(boolean v){
+
 			DirectoryChooser chooser = new DirectoryChooser();
 			File defaultDirectory = chooser.showDialog(null);
 			chooser.setInitialDirectory(defaultDirectory);
@@ -53,6 +58,6 @@ public abstract class Compression {
 					}
 				}
 			}
-		}
+
 	}
 }

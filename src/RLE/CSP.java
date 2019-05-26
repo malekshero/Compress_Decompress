@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.*;
 import java.lang.*;
 
-enum TypeFichier{TEXTE, HYBRIDE, DONNEES_COMPRESSEES, INCONNU};
-
 public class CSP {
 	public static boolean VERB=true;
 	private static final int LETTRE=0,ESPACE=1,MOYENNE=2,ECART_TYPE=3;

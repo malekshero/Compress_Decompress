@@ -4,6 +4,7 @@ import Arithmatic.AdaptiveArithmeticDecompress;
 import Arithmatic.ArithmeticCompress;
 import Arithmatic.ArithmeticDecompress;
 import LZ77.LZ77;
+import LZW.LZWCompression;
 import RLE.RLE;
 import RLE.HuffmanComp;
 import RLE.blockSortingAlgorithm;
@@ -36,6 +37,11 @@ public class Controller implements Initializable {
     public Button ArithmaticDecompress;
     public Button ArithmaticCompress;
     public Button LZ77;
+    public Button RLEButton1;
+    public Button HuffmanFiles;
+    public Button LZW;
+    public Button LZ771;
+    public Button LZWFiles;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -117,5 +123,30 @@ public class Controller implements Initializable {
     public void LZ77Button(ActionEvent actionEvent) throws IOException {
         LZ77 lz77 = new LZ77();
         lz77.main();
+    }
+
+    public void RLEFilesButton(ActionEvent actionEvent) {
+        RLE rc=new RLE("");
+        rc.RleFiles(true);
+    }
+
+    public void HuffmanFilesButton(ActionEvent actionEvent) {
+        HuffmanComp h = new HuffmanComp("");
+        h.RleFiles(true);
+    }
+
+    public void LZWButton(ActionEvent actionEvent) throws IOException {
+        LZWCompression lzw = new LZWCompression();
+        lzw.mains();
+    }
+
+    public void LZ77FilesButton(ActionEvent actionEvent) throws IOException {
+        LZ77 lz77 = new LZ77();
+        lz77.mainFiles();
+    }
+
+    public void LZWFilesButton(ActionEvent actionEvent) throws IOException {
+        LZWCompression lzw = new LZWCompression();
+        lzw.mainsFiles();
     }
 }

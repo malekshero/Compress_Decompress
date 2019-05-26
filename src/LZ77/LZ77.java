@@ -2,6 +2,7 @@ package LZ77;
 
 import StreamsLZ77.BitInputStream;
 import StreamsLZ77.BitOutputStream;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import java.io.*;
@@ -9,7 +10,9 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 //FIXME - Remove all printStackTrace with proper System.out.
 public class LZ77 {
@@ -204,4 +207,70 @@ public class LZ77 {
 			System.out.printf("CompressionRatio : %.1f%s\n",all,"%");
 		}
 	}
+
+
+	public  void mainFiles() throws IOException {
+
+		int windowSize = 100;
+		DirectoryChooser chooser = new DirectoryChooser();
+		File defaultDirectory = chooser.showDialog(null);
+		chooser.setInitialDirectory(defaultDirectory);
+		List<String> results = new ArrayList<String>();
+		File[] files = new File(defaultDirectory.getAbsolutePath()).listFiles();
+		if (defaultDirectory != null) {
+			for (File file : files) {
+				if (file.isFile()) {
+					results.add(file.getAbsolutePath());
+
+
+
+					String inputFileName = file.getAbsolutePath();
+
+					StringBuilder compressedFileNameBuilder = new StringBuilder();
+					String compressedFileName = new String();
+					String decompressedFileName = new String();
+					int extension = inputFileName.lastIndexOf(".");
+					if (extension > -1) {
+						compressedFileNameBuilder.append(inputFileName.substring(0, extension));
+						compressedFileNameBuilder.append("-compressed");
+						compressedFileNameBuilder.append(inputFileName.substring(extension));
+					} else {
+						compressedFileNameBuilder.append(inputFileName);
+						compressedFileNameBuilder.append("-compressed");
+					}
+					compressedFileName = compressedFileNameBuilder.toString();
+					decompressedFileName = compressedFileName.toString().replace("-compressed", "-decompressed");
+
+					if (Files.exists(Paths.get(compressedFileName))) {
+						Files.delete(Paths.get(compressedFileName));
+					}
+					if (Files.exists(Paths.get(decompressedFileName))) {
+						Files.delete(Paths.get(decompressedFileName));
+					}
+					LZ77 lz77 = new LZ77(windowSize);
+					System.out.println("Compression started...");
+
+					File input = new File(compressedFileName);
+					File output = new File(decompressedFileName);
+
+					long startTime = System.currentTimeMillis();
+					lz77.compress(inputFileName, "Files/Compressed/" + input.getName());
+					long endTime = System.currentTimeMillis();
+					System.out.println("Compression Done in : " + (endTime - startTime) + " ms");
+
+
+					startTime = System.currentTimeMillis();
+					System.out.println("\nDecompression started...");
+					lz77.decompress("Files/Compressed/" + input.getName(), "Files/Decompressed/" + output.getName());
+					endTime = System.currentTimeMillis();
+					System.out.println("Decompression Done in: " + (endTime - startTime) + " ms");
+					File input1 = new File("Files/Compressed/" + input.getName());
+					File output1 = new File("Files/Decompressed/" + output.getName());
+
+					double all = 100 - (double) input1.length() / (double) output1.length() * 100;
+					System.out.printf("CompressionRatio : %.1f%s\n", all, "%");
+				}
+			}
+		}
+}
 }
