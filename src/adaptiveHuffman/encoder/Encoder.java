@@ -62,6 +62,7 @@ public class Encoder {
 						System.out.println("Compressed size: "+out.length()+" bytes");
 						double all=100-(double)file.length()/(double)out.length()*100;
 						System.out.printf("CompressionRatio : %.1f%s\n",all,"%");
+						System.out.println();
 					}
 				}
 			}

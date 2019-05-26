@@ -3,6 +3,7 @@ import Arithmatic.AdaptiveArithmeticCompress;
 import Arithmatic.AdaptiveArithmeticDecompress;
 import Arithmatic.ArithmeticCompress;
 import Arithmatic.ArithmeticDecompress;
+import LZ77.LZ77;
 import RLE.RLE;
 import RLE.HuffmanComp;
 import RLE.blockSortingAlgorithm;
@@ -34,6 +35,7 @@ public class Controller implements Initializable {
     public Button AdaptiveArithmaticDecompress;
     public Button ArithmaticDecompress;
     public Button ArithmaticCompress;
+    public Button LZ77;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -110,5 +112,10 @@ public class Controller implements Initializable {
     public void ArithmaticDecompressButton(ActionEvent actionEvent) throws IOException {
         ArithmeticDecompress ac = new ArithmeticDecompress();
         ac.mains();
+    }
+
+    public void LZ77Button(ActionEvent actionEvent) throws IOException {
+        LZ77 lz77 = new LZ77();
+        lz77.main();
     }
 }

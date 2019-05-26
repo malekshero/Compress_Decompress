@@ -19,5 +19,6 @@
       <Button fx:id="AdaptiveArithmaticDecompress" layoutX="101.0" layoutY="275.0" mnemonicParsing="false" onAction="#AdaptiveArithmaticDecompressButton" text="AdaptiveArithmaticDecompress" />
       <Button fx:id="ArithmaticCompress" layoutX="317.0" layoutY="231.0" mnemonicParsing="false" onAction="#ArithmaticCompressButton" text="ArithmaticCompress" />
       <Button fx:id="ArithmaticDecompress" layoutX="312.0" layoutY="275.0" mnemonicParsing="false" onAction="#ArithmaticDecompressButton" text="ArithmaticDecompress" />
+      <Button fx:id="LZ77" layoutX="448.0" layoutY="44.0" mnemonicParsing="false" onAction="#LZ77Button" text="LZ77" />
    </children>
 </AnchorPane>

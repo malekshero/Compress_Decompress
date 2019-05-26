@@ -1,17 +1,7 @@
-package Arithmatic;/*
- * Reference arithmetic coding
- * Copyright (c) Project Nayuki
- * 
- * https://www.nayuki.io/page/reference-arithmetic-coding
- * https://github.com/nayuki/Reference-arithmetic-coding
- */
-
+package Arithmatic;
 import javafx.stage.FileChooser;
 
 import java.io.*;
-
-import static Arithmatic.PpmDecompress.decompress;
-
 
 /**
  * Decompression application using adaptive arithmetic coding.

@@ -7,7 +7,6 @@ import java.io.*;
 public class ArithmeticCompress {
 	
 	public  void mains() throws IOException {
-		// Handle command line arguments
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files", "*.*"));
 		File f = fc.showOpenDialog(null);
@@ -28,6 +27,14 @@ public class ArithmeticCompress {
 				writeFrequencies(out, freqs);
 				compress(freqs, in, out);
 			}
+            long t = System.nanoTime();
+            long at = System.nanoTime();
+
+            System.out.println("Finished compression of: "+inputFile.getName()+" in "+(float)(at-t)/1000000+" ms");
+            System.out.println("Original size: "+inputFile.length()+" bytes");
+            System.out.println("Compressed size: "+outputFile.length()+" bytes");
+            double all=(double)inputFile.length()/(double)outputFile.length()*100;
+            System.out.printf("CompressionRatio : %.1f%s\n",all,"%");
 		}
 	}
 	
